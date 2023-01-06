@@ -64,7 +64,6 @@ class MyView(View):
 
     def get(self, request):
         return HttpResponse('Good morning')
-        #return HttpResponse(self.name)
 
 
 class MyViewChild(MyView):
