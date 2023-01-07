@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from mixins import views
+#from mixins import views
+#from modelviewset import views
+from concrete import views
 from modelviewset.views import StudentModelViewSet
 
 router = DefaultRouter()
@@ -31,14 +33,21 @@ urlpatterns = [
     # path('modelviewset/', include('modelviewset.urls')),
     # path('mixins/', include('mixins.urls')),
     # path('', include(router.urls)),
-    path('studentlistapi/', views.StudentList.as_view()),
-    path('studentcreateapi/', views.StudentCreate.as_view()),
-    path('studentretrieveapi/<int:pk>/', views.StudentRetrieve.as_view()),
-    path('studentupdateapi/<int:pk>/', views.StudentUpdate.as_view()),
-    path('studentdestroyapi/<int:pk>/', views.StudentDestroy.as_view()),
-    path('studentLCapi/', views.StudentLC.as_view()),
-    path('studentGUDapi/<int:pk>/', views.StudentGUD.as_view()),
-
-
+    # path('studentlistapi/', views.StudentList.as_view()),
+    # path('studentcreateapi/', views.StudentCreate.as_view()),
+    # path('studentretrieveapi/<int:pk>/', views.StudentRetrieve.as_view()),
+    # path('studentupdateapi/<int:pk>/', views.StudentUpdate.as_view()),
+    # path('studentdestroyapi/<int:pk>/', views.StudentDestroy.as_view()),
+    # path('studentLCapi/', views.StudentLC.as_view()),
+    # path('studentGUDapi/<int:pk>/', views.StudentGUD.as_view()),
+    path('studentList/', views.StudentList.as_view()),
+    path('studentCreate/', views.StudentCreate.as_view()),
+    path('studentUpdate/<int:pk>/', views.StudentUpdate.as_view()),
+    path('studentDestroy/<int:pk>/', views.StudentDestroy.as_view()),
+    path('studentRetrieve/<int:pk>/', views.StudentRetrieve.as_view()),
+    path('studentListCreate/', views.StudentListCreate.as_view()),
+    path('studentRetrieveUpdate/<int:pk>/', views.StudentRetrieveUpdate.as_view()),
+    path('studentRetrieveDestroy/<int:pk>/', views.StudentRetrieveDestroy.as_view()),
+    path('studentRetrieveUpdateDestroy/<int:pk>/', views.StudentRetrieveUpdateDestroy.as_view()),
 
     ]
