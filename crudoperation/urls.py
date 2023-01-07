@@ -18,14 +18,16 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 #from mixins import views
-#from modelviewset import views
+from modelviewset import views
 from concrete import views
+
 from modelviewset.views import StudentModelViewSet
 
 router = DefaultRouter()
 
 # router.register('studentapi', StudentViewSet, basename='student')
 router.register('modelviewset_studentapi', StudentModelViewSet, basename='student')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -49,5 +51,6 @@ urlpatterns = [
     path('studentRetrieveUpdate/<int:pk>/', views.StudentRetrieveUpdate.as_view()),
     path('studentRetrieveDestroy/<int:pk>/', views.StudentRetrieveDestroy.as_view()),
     path('studentRetrieveUpdateDestroy/<int:pk>/', views.StudentRetrieveUpdateDestroy.as_view()),
+    path('studentAllConcreteClass/<int:pk>/', views.AllConcreteClass.as_view()),
 
     ]

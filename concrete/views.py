@@ -5,6 +5,11 @@ from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView,
 # Create your views here.
 
 
+class AllConcreteClass(ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+
 class StudentList(ListAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
