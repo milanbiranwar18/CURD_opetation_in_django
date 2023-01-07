@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+
+from mixins import views
 from modelviewset.views import StudentModelViewSet
 
 router = DefaultRouter()
@@ -25,8 +27,18 @@ router.register('modelviewset_studentapi', StudentModelViewSet, basename='studen
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/', include('user.urls')),
-    path('modelviewset/', include('modelviewset.urls')),
-    path('', include(router.urls)),
+    # path('user/', include('user.urls')),
+    # path('modelviewset/', include('modelviewset.urls')),
+    # path('mixins/', include('mixins.urls')),
+    # path('', include(router.urls)),
+    path('studentlistapi/', views.StudentList.as_view()),
+    path('studentcreateapi/', views.StudentCreate.as_view()),
+    path('studentretrieveapi/<int:pk>/', views.StudentRetrieve.as_view()),
+    path('studentupdateapi/<int:pk>/', views.StudentUpdate.as_view()),
+    path('studentdestroyapi/<int:pk>/', views.StudentDestroy.as_view()),
+    path('studentLCapi/', views.StudentLC.as_view()),
+    path('studentGUDapi/<int:pk>/', views.StudentGUD.as_view()),
 
-]
+
+
+    ]
